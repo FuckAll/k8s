@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  namespace: kube-system
+  name: consul
+spec:
+  replicas: 3
+  selector:
+    app: consul
+  template:
+    metadata:
+      labels:
+        app: consul
+    spec:
+      containers:
+        - name: consul
+          command: [ "/bin/start", "-server", "-bootstrap-expect", "3", "-atlas", "izgnod/consul", "-atlas-join", "-atlas-token", "GE2xw32MB9uA0g.atlasv1.y6Zd2AyfE77lg4iPjVhtik9iCRKJ4OOzUWYpUgwhnky8j5AsjIcFPpGOfwLIGbINhPs" ]
+          image: docker.io/progrium/consul
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8500
+            name: ui-port
+          - containerPort: 8400
+            name: alt-port
+          - containerPort: 53
+            name: udp-port
+          - containerPort: 443
+            name: https-port
+          - containerPort: 8080
+            name: http-port
+          - containerPort: 8301
+            name: serflan
+          - containerPort: 8302
+            name: serfwan
+          - containerPort: 8600
+            name: consuldns
+          - containerPort: 8300
+            name: server
+
