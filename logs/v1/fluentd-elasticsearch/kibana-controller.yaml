@@ -30,7 +30,7 @@ spec:
             cpu: 100m
         env:
           - name: "ELASTICSEARCH_URL"
-            value: "http://192.168.1.140:9200"
+            value: "http://192.168.1.9:9200"
         ports:
         - containerPort: 5601
           name: ui
