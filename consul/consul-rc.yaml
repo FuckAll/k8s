@@ -15,7 +15,7 @@ spec:
       containers:
         - name: consul
           command: [ "/bin/start", "-server", "-bootstrap-expect", "3", "-atlas", "izgnod/consul", "-atlas-join", "-atlas-token", "GE2xw32MB9uA0g.atlasv1.y6Zd2AyfE77lg4iPjVhtik9iCRKJ4OOzUWYpUgwhnky8j5AsjIcFPpGOfwLIGbINhPs" ]
-          image: docker.io/progrium/consul
+          image: index.tenxcloud.com/izgnod/consul:latest
           imagePullPolicy: Always
           ports:
           - containerPort: 8500
