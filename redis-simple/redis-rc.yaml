@@ -13,11 +13,11 @@ spec:
     spec:
       containers:
         - name: redis
-          image: reg.17mei.top/redis/redis:latest
+	  image: reg.17mei.top/redis/redis:latest 
+	  imagePullPolicy: Always
           ports:
           - containerPort: 6347
             name: tcp
           env:
             - name: REDIS_PASS
               value: meidb
-
