@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: pgsql
+spec:
+  replicas: 1
+  selector:
+    app: pgsql
+  template:
+    metadata:
+      labels:
+        app: pgsql
+    spec:
+      containers:
+        - name: pgsql
+          image: reg.17mei.top/pgsql/postgres:9.5.3
+          ports:
+          - containerPort: 5432
+            name: tcp
+          env:
+            - name: POSTGRES_DB
+              value: meidb
+            - name: POSTGRES_PASSWORD
+              value: wothing
+
