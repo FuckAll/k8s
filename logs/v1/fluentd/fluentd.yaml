@@ -6,7 +6,7 @@ metadata:
 spec:
   containers:
     - name: fluentd-es
-      image: docker.io/kubernetes/fluentd-elasticsearch
+      image: index.tenxcloud.com/izgnod/fluentd-elasticsearch
       env:
         - name: FLUENTD_ARGS
           value: -qq
